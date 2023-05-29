@@ -1,0 +1,263 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านอาหารในกรุงเทพ</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+
+<!-- W3 CSS template -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <style>
+        #mapid {
+            height: 800px;
+        }
+    </style>
+
+</head>
+<body>
+     <div class="w3-row">
+        <div id="mapid" class="w3-half"></div>
+        <div id="content" class="w3-half">
+            <table class="w3-table w3-striped">
+                <tr>
+                    <th>ชื่อร้านอาหาร</th>
+                    <th>จังหวัด</th>
+                    <th>คะแนน</th>
+                </tr>
+                <tr>
+                    <td>น้ำตก A</td>
+                    <td>ธรรมชาติ</td>
+                    <td>A</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+  
+<!-- link geojson file -->
+
+<script>
+       
+        var map = L.map("mapid").setView([13.285600931438836, 100.91601832676582], 8);
+   
+        var osm = L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        ).addTo(map);
+        var gsat = L.tileLayer(
+      "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+        ).addTo(map);
+
+  var baseMaps = {
+      OSM: osm,
+      GoogleSat: gsat,
+  };
+
+// L.control.layers(baseMaps).addTo(map);
+var tourpoint = {  
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "ครัวสา รสจัด",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 9
+      },
+      "geometry": {
+        "coordinates": [
+          100.56203900000241,
+          13.842178916738092
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "ท่านหญิง",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.52193999999997,
+          13.721713760921588
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "บ้านนวล",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 7
+      },
+      "geometry": {
+        "coordinates": [
+          100.5002777296703,
+          13.763206070314183
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "เรือนมัลลิการ์",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.56308973777413,
+          13.72519030652711
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "เสน่ห์จันทน์",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": " 8"
+      },
+      "geometry": {
+        "coordinates": [
+          100.54590775544887,
+          13.735499429706806
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "ครัวอัปษร",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 9
+      },
+      "geometry": {
+        "coordinates": [
+          100.50155167265103,
+          13.755279769570436
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "เมธาวลัย ศรแดง",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.50203866746102,
+          13.756091217655424
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "อรรถรส",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 7
+      },
+      "geometry": {
+        "coordinates": [
+          100.57165118902907,
+          13.737687088388057
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "กินอยู่ได้ ",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 6
+      },
+      "geometry": {
+        "coordinates": [
+          99.0034469825166,
+          18.760169097862118
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ชื่อร้านอาหาร": "ลูกไก่ทอง",
+        "จังหวัด": "กรุงเทพ",
+        "คะแนน": 8
+      },
+      "geometry": {
+        "coordinates": [
+          100.62005038021363,
+          13.80950619195788
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
+var tourLayer = L.geoJSON(tourpoint, {
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng).bindPopup(feature.properties.name);
+            },
+            onEachFeature: function (feature, layer) {
+                layer.on("mouseover", function () {
+                    document
+                        .getElementById(feature.properties.name)
+                        .classList.add("w3-red");
+                });
+
+                layer.on("mouseout", function () {
+                    document
+                        .getElementById(feature.properties.name)
+                        .classList.remove("w3-red");
+                });
+            },
+        }).addTo(map);
+
+        var cont = "";
+        cont += "<table class='w3-table w3-striped'>";
+        cont += "<tr>";
+        cont += "<th>ชื่อร้านอาหาร</th>";
+        cont += "<th>จังหวัด</th>";
+        cont += "<th>คะแนน</th>";
+        cont += "</tr>";
+        for (let i in tourpoint.features) {
+            cont += "<tr id=" + tourpoint.features[i].properties.name + ">";
+            cont += "<td>" + tourpoint.features[i].properties.ชื่อร้านอาหาร + "</td>";
+            cont += "<td>" + tourpoint.features[i].properties.จังหวัด + "</td>";
+            cont += "<td>" + tourpoint.features[i].properties.คะแนน + "</td>";
+            cont += "</tr>";
+        }
+        cont += "</table>";
+        console.log(cont);
+        document.getElementById("content").innerHTML = cont;
+  
+   var overlays = {สถานที่ท่องเที่ยว: tourLayer};
+        //add leyer control
+    L.control.layers(baseMaps, overlays).addTo(map);
+
+  
+  </script>
+  
+    
+</body>
+</html>
